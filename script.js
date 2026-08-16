@@ -94,7 +94,7 @@ function connectParticles() {
                 ctx.lineWidth = 0.5;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y); // تم تصحيح الاحداثيات هنا
                 ctx.stroke();
             }
         }

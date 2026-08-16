@@ -132,8 +132,7 @@
                     <!-- Design Item 1 -->
                     <div class="portfolio-item design" onclick="openImageModal('images/0040.jpg')">
                         <div class="portfolio-img">
-                            <img src="images/0040.jpg" alt="Design 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-image fa-3x"></i></div>
+                            <img src="images/0040.jpg" alt="Design 1" loading="lazy">
                         </div>
                         <div class="portfolio-info">
                             <h4>Photo Retouching & Editing</h4>
@@ -144,8 +143,7 @@
                     <!-- Video Item 1 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
-                            <img src="images/project2.jpg" alt="Video 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-film fa-3x"></i></div>
+                            <img src="https://lh3.googleusercontent.com/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX=w800" alt="Video Thumbnail" loading="lazy">
                             <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="portfolio-info">
@@ -157,8 +155,7 @@
                     <!-- Design Item 2 -->
                     <div class="portfolio-item design" onclick="openImageModal('images/project3.jpg')">
                         <div class="portfolio-img">
-                            <img src="images/project3.jpg" alt="Design 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-image fa-3x"></i></div>
+                            <img src="images/project3.jpg" alt="Design 2" loading="lazy">
                         </div>
                         <div class="portfolio-info">
                             <h4>Social Media Poster</h4>
@@ -169,8 +166,7 @@
                     <!-- Video Item 2 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
-                            <img src="images/project4.jpg" alt="Video 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-video fa-3x"></i></div>
+                            <img src="https://lh3.googleusercontent.com/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX=w800" alt="Video Thumbnail" loading="lazy">
                             <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="portfolio-info">
@@ -182,8 +178,7 @@
                     <!-- Design Item 3 -->
                     <div class="portfolio-item design" onclick="openImageModal('images/project5.jpg')">
                         <div class="portfolio-img">
-                            <img src="images/project5.jpg" alt="Design 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-image fa-3x"></i></div>
+                            <img src="images/project5.jpg" alt="Design 3" loading="lazy">
                         </div>
                         <div class="portfolio-info">
                             <h4>Brand Manipulation Art</h4>
@@ -194,8 +189,7 @@
                     <!-- Video Item 3 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
-                            <img src="images/project6.jpg" alt="Video 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-film fa-3x"></i></div>
+                            <img src="https://lh3.googleusercontent.com/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX=w800" alt="Video Thumbnail" loading="lazy">
                             <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="portfolio-info">
@@ -219,11 +213,17 @@
             <h2 style="text-align: center;">Let's Work Together</h2>
             <p style="color: var(--text-muted); text-align: center; margin-top: 8px;">Send me a message directly and let's bring your project to life!</p>
 
-            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
-                <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+            <form class="contact-form" id="andrea-contact-form">
+                <div class="form-group">
+                    <input type="text" id="andrea_user_name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="andrea_user_email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="andrea_user_message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" id="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
@@ -251,5 +251,55 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhbaTGk9CIqoCzzwwy9YpIY83L-7FDn3w",
+            authDomain: "andria-mounir.firebaseapp.com",
+            projectId: "andria-mounir",
+            storageBucket: "andria-mounir.firebasestorage.app",
+            messagingSenderId: "910584096570",
+            appId: "1:910584096570:web:dc3188b170a280bab1d203",
+            measurementId: "G-QVLQL3NKS4"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        const contactForm = document.getElementById('andrea-contact-form');
+        const submitBtn = document.getElementById('btn-submit');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                submitBtn.innerHTML = "Sending... <i class='fas fa-spinner fa-spin'></i>";
+                submitBtn.disabled = true;
+
+                db.collection("messages").add({
+                    name: document.getElementById('andrea_user_name').value,
+                    email: document.getElementById('andrea_user_email').value,
+                    message: document.getElementById('andrea_user_message').value,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                })
+                .then(() => {
+                    alert("Thank you! Your message has been sent successfully.");
+                    contactForm.reset();
+                    submitBtn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
+                    submitBtn.disabled = false;
+                })
+                .catch((error) => {
+                    console.error("Error sending message: ", error);
+                    alert("Something went wrong. Please try again later.");
+                    submitBtn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
+                    submitBtn.disabled = false;
+                });
+            });
+        }
+    </script>
 </body>
 </html>
