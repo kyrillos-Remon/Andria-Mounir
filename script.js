@@ -1,4 +1,3 @@
-// Intro Loader Animation
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const intro = document.getElementById('intro-screen');
@@ -8,7 +7,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 2000);
 });
 
-// Canvas & Glow Orbs Interactive Mouse Movement
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 const glow1 = document.querySelector('.glow-1');
@@ -94,7 +92,7 @@ function connectParticles() {
                 ctx.lineWidth = 0.5;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y); // تم تصحيح الاحداثيات هنا
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
                 ctx.stroke();
             }
         }
@@ -114,7 +112,6 @@ function animate() {
 resizeCanvas();
 animate();
 
-// Mobile Navigation Toggle
 const menuToggle = document.getElementById('menu-toggle');
 const navLinksContainer = document.getElementById('nav-links');
 const navItems = document.querySelectorAll('.nav-item');
@@ -141,7 +138,6 @@ if (menuToggle && navLinksContainer) {
     });
 }
 
-// Active Scrollspy Navbar Lighting Effect
 const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
     let currentSection = '';
@@ -161,7 +157,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Carousel & Filtering Logic
 const portfolioGrid = document.getElementById('portfolioGrid');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -242,7 +237,6 @@ filterBtns.forEach(btn => {
 window.addEventListener('resize', updateSlider);
 document.addEventListener('DOMContentLoaded', updateSlider);
 
-// Video Modal Controls
 function openVideoModal(videoSrc) {
     const modal = document.getElementById('video-modal');
     const iframe = document.getElementById('modal-iframe');
@@ -259,7 +253,6 @@ function closeVideoModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Image Modal Controls
 function openImageModal(imageSrc) {
     const modal = document.getElementById('image-modal');
     const imgTag = document.getElementById('modal-img-src');
@@ -276,7 +269,6 @@ function closeImageModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Global Keydown Handler for Closing Modals
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeVideoModal();

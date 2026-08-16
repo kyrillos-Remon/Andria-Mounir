@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andria Mounir | Graphic Designer & Video Editor</title>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Intro Screen (Loader) -->
     <div id="intro-screen">
         <div class="intro-content">
             <h1 class="intro-logo">AM.</h1>
@@ -25,12 +21,10 @@
         </div>
     </div>
 
-    <!-- Background Glow Orbs & Canvas -->
     <div class="glow-1"></div>
     <div class="glow-2"></div>
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Header Navigation -->
     <nav>
         <div class="logo">AM.</div>
         
@@ -47,7 +41,6 @@
         </ul>
     </nav>
 
-    <!-- Home Section -->
     <section class="hero" id="home">
         <div class="hero-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Visual Storyteller</div>
         <h1>Crafting Stunning Visuals & <span>Dynamic Videos</span></h1>
@@ -65,7 +58,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="section-title">
             <h2>About Me</h2>
@@ -80,7 +72,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services">
         <div class="section-title">
             <h2>What I Do</h2>
@@ -108,7 +99,6 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio">
         <div class="section-title">
             <h2>Featured Work</h2>
@@ -129,7 +119,6 @@
             <div class="portfolio-slider-container">
                 <div class="portfolio-grid" id="portfolioGrid">
                     
-                    <!-- Design Item 1 -->
                     <div class="portfolio-item design" onclick="openImageModal('images/0040.jpg')">
                         <div class="portfolio-img">
                             <img src="images/0040.jpg" alt="Design 1" loading="lazy">
@@ -140,7 +129,6 @@
                         </div>
                     </div>
 
-                    <!-- Video Item 1 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
                             <img src="https://lh3.googleusercontent.com/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX=w800" alt="Video Thumbnail" loading="lazy">
@@ -152,7 +140,6 @@
                         </div>
                     </div>
 
-                    <!-- Design Item 2 -->
                     <div class="portfolio-item design" onclick="openImageModal('images/project3.jpg')">
                         <div class="portfolio-img">
                             <img src="images/project3.jpg" alt="Design 2" loading="lazy">
@@ -163,7 +150,6 @@
                         </div>
                     </div>
 
-                    <!-- Video Item 2 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
                             <img src="https://lh3.googleusercontent.com/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX=w800" alt="Video Thumbnail" loading="lazy">
@@ -175,7 +161,6 @@
                         </div>
                     </div>
 
-                    <!-- Design Item 3 -->
                     <div class="portfolio-item design" onclick="openImageModal('images/project5.jpg')">
                         <div class="portfolio-img">
                             <img src="images/project5.jpg" alt="Design 3" loading="lazy">
@@ -186,7 +171,6 @@
                         </div>
                     </div>
 
-                    <!-- Video Item 3 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
                             <img src="https://lh3.googleusercontent.com/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX=w800" alt="Video Thumbnail" loading="lazy">
@@ -207,7 +191,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="contact-box">
             <h2 style="text-align: center;">Let's Work Together</h2>
@@ -224,11 +207,12 @@
                     <textarea id="andrea_user_message" rows="5" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn-primary" id="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                
+                <div id="form-status-msg" class="status-msg"></div>
             </form>
         </div>
     </section>
 
-    <!-- Video Modal -->
     <div id="video-modal" class="video-modal" onclick="closeVideoModal()">
         <span class="close-modal">&times;</span>
         <div class="modal-content" onclick="event.stopPropagation()">
@@ -236,7 +220,6 @@
         </div>
     </div>
 
-    <!-- Image Modal -->
     <div id="image-modal" class="video-modal" onclick="closeImageModal()">
         <span class="close-modal">&times;</span>
         <div class="image-modal-content" onclick="event.stopPropagation()">
@@ -244,7 +227,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>All Rights Reserved &copy; 2026 - Andria Mounir</p>
         <p class="dev-credit">Developed by <a href="https://kyrillos.sbs" target="_blank">Kyrillos Remon</a></p>
@@ -252,7 +234,6 @@
 
     <script src="script.js"></script>
 
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
@@ -272,10 +253,40 @@
 
         const contactForm = document.getElementById('andrea-contact-form');
         const submitBtn = document.getElementById('btn-submit');
+        const statusMsg = document.getElementById('form-status-msg');
+
+        function showStatus(text, type) {
+            statusMsg.innerText = text;
+            statusMsg.className = `status-msg ${type}`;
+            statusMsg.style.display = 'block';
+            
+            setTimeout(() => {
+                if (type !== 'error') {
+                    statusMsg.style.display = 'none';
+                }
+            }, 5000);
+        }
+
+        function checkDailyLimit() {
+            const today = new Date().toISOString().split('T')[0];
+            const savedData = JSON.parse(localStorage.getItem('user_msg_limit')) || { date: today, count: 0 };
+
+            if (savedData.date !== today) {
+                return { date: today, count: 0 };
+            }
+            return savedData;
+        }
 
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+
+                let limitData = checkDailyLimit();
+
+                if (limitData.count >= 3) {
+                    showStatus("عفواً، لقد وصلت للحد الأقصى (3 رسائل يومياً). يمكنك المحاولة مجدداً غداً!", "error");
+                    return;
+                }
 
                 submitBtn.innerHTML = "Sending... <i class='fas fa-spinner fa-spin'></i>";
                 submitBtn.disabled = true;
@@ -287,14 +298,19 @@
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 })
                 .then(() => {
-                    alert("Thank you! Your message has been sent successfully.");
+                    limitData.count += 1;
+                    localStorage.setItem('user_msg_limit', JSON.stringify(limitData));
+
+                    const remaining = 3 - limitData.count;
+                    showStatus(`تم إرسال رسالتك بنجاح! متبقي لك اليوم ${remaining} رسائل.`, "success");
+
                     contactForm.reset();
                     submitBtn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
                     submitBtn.disabled = false;
                 })
                 .catch((error) => {
                     console.error("Error sending message: ", error);
-                    alert("Something went wrong. Please try again later.");
+                    showStatus("حدث خطأ أثناء الإرسال، برجاء المحاولة لاحقاً.", "error");
                     submitBtn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
                     submitBtn.disabled = false;
                 });
