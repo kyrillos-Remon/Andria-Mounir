@@ -259,6 +259,27 @@ function closeVideoModal() {
     document.body.style.overflow = 'auto';
 }
 
+// Image Modal Controls
+function openImageModal(imageSrc) {
+    const modal = document.getElementById('image-modal');
+    const imgTag = document.getElementById('modal-img-src');
+    imgTag.src = imageSrc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('image-modal');
+    const imgTag = document.getElementById('modal-img-src');
+    imgTag.src = '';
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Global Keydown Handler for Closing Modals
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeVideoModal();
+    if (e.key === 'Escape') {
+        closeVideoModal();
+        closeImageModal();
+    }
 });

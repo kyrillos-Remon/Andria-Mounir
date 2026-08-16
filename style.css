@@ -515,7 +515,7 @@ section {
     cursor: not-allowed;
 }
 
-/* Modal */
+/* Modals */
 .video-modal {
     display: none;
     position: fixed;
@@ -552,6 +552,23 @@ section {
     font-size: 3rem;
     color: #fff;
     cursor: pointer;
+}
+
+/* Image Modal Specific Styles */
+.image-modal-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
 }
 
 /* Contact Box */

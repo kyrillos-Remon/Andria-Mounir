@@ -129,9 +129,10 @@
             <div class="portfolio-slider-container">
                 <div class="portfolio-grid" id="portfolioGrid">
                     
-                    <div class="portfolio-item design">
+                    <!-- Design Item 1 -->
+                    <div class="portfolio-item design" onclick="openImageModal('images/0040.jpg')">
                         <div class="portfolio-img">
-                            <img src="images/project1.jpg" alt="Design 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="images/0040.jpg" alt="Design 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-image fa-3x"></i></div>
                         </div>
                         <div class="portfolio-info">
@@ -140,9 +141,10 @@
                         </div>
                     </div>
 
+                    <!-- Video Item 1 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
-                            <img src="images/project2.jpg" alt="Video 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="images/project2.jpg" alt="Video 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-film fa-3x"></i></div>
                             <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                         </div>
@@ -152,9 +154,10 @@
                         </div>
                     </div>
 
-                    <div class="portfolio-item design">
+                    <!-- Design Item 2 -->
+                    <div class="portfolio-item design" onclick="openImageModal('images/project3.jpg')">
                         <div class="portfolio-img">
-                            <img src="images/project3.jpg" alt="Design 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="images/project3.jpg" alt="Design 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-image fa-3x"></i></div>
                         </div>
                         <div class="portfolio-info">
@@ -163,9 +166,10 @@
                         </div>
                     </div>
 
+                    <!-- Video Item 2 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
-                            <img src="images/project4.jpg" alt="Video 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="images/project4.jpg" alt="Video 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-video fa-3x"></i></div>
                             <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                         </div>
@@ -175,9 +179,10 @@
                         </div>
                     </div>
 
-                    <div class="portfolio-item design">
+                    <!-- Design Item 3 -->
+                    <div class="portfolio-item design" onclick="openImageModal('images/project5.jpg')">
                         <div class="portfolio-img">
-                            <img src="images/project5.jpg" alt="Design 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="images/project5.jpg" alt="Design 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-image fa-3x"></i></div>
                         </div>
                         <div class="portfolio-info">
@@ -186,9 +191,10 @@
                         </div>
                     </div>
 
+                    <!-- Video Item 3 -->
                     <div class="portfolio-item video" onclick="openVideoModal('https://drive.google.com/file/d/1sE55fUD1x7bD3bDXtqmXLrU-L9rzEaKX/preview')">
                         <div class="portfolio-img">
-                            <img src="images/project6.jpg" alt="Video 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="images/project6.jpg" alt="Video 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="placeholder-icon" style="display:none;"><i class="fa-solid fa-film fa-3x"></i></div>
                             <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                         </div>
@@ -227,6 +233,14 @@
         <span class="close-modal">&times;</span>
         <div class="modal-content" onclick="event.stopPropagation()">
             <iframe id="modal-iframe" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="video-modal" onclick="closeImageModal()">
+        <span class="close-modal">&times;</span>
+        <div class="image-modal-content" onclick="event.stopPropagation()">
+            <img id="modal-img-src" src="" alt="Expanded Design">
         </div>
     </div>
 
