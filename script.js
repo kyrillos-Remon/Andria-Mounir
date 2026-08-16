@@ -95,7 +95,6 @@ if (menuToggle && navLinks) {
         }
     });
 
-    // Close mobile menu when clicking a link
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -114,11 +113,9 @@ const portfolioItems = document.querySelectorAll('.portfolio-item');
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        // Handle Active Class
         filterBtns.forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
 
-        // Filter Logic
         const category = e.target.getAttribute('data-filter');
 
         portfolioItems.forEach(item => {
@@ -129,4 +126,28 @@ filterBtns.forEach(btn => {
             }
         });
     });
+});
+
+// Fullscreen Drive Video Modal Logic
+function openVideoModal(videoSrc) {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('modal-iframe');
+    iframe.src = videoSrc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // منع التمرير أثناء فتح الفيديو
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('modal-iframe');
+    iframe.src = ''; // تفريغ المصدر لإيقاف الصوت والفيديو
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // إعادة التمرير
+}
+
+// Close Modal with Escape Key
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeVideoModal();
+    }
 });

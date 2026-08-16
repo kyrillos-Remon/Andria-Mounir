@@ -25,7 +25,6 @@ body {
     position: relative;
 }
 
-/* Canvas for Interactive Mouse Background Animation */
 #bg-canvas {
     position: fixed;
     top: 0;
@@ -36,7 +35,6 @@ body {
     z-index: -1;
 }
 
-/* Ambient Glow Backgrounds */
 .glow-1 {
     position: absolute;
     top: -100px;
@@ -102,7 +100,6 @@ nav {
     color: var(--primary-neon);
 }
 
-/* Mobile Menu Toggle Button */
 .menu-toggle {
     display: none;
     background: none;
@@ -195,7 +192,6 @@ nav {
     transform: translateY(-3px);
 }
 
-/* Tech Stack Tags */
 .tech-stack {
     display: flex;
     justify-content: center;
@@ -223,7 +219,6 @@ nav {
     transform: scale(1.05);
 }
 
-/* Section Layout */
 section {
     padding: 100px 8%;
 }
@@ -321,6 +316,7 @@ section {
     overflow: hidden;
     position: relative;
     transition: all 0.4s ease;
+    cursor: pointer;
 }
 
 .portfolio-item:hover {
@@ -364,8 +360,8 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     background: var(--gradient);
     border-radius: 50%;
     display: flex;
@@ -373,8 +369,13 @@ section {
     justify-content: center;
     color: #fff;
     font-size: 1.2rem;
-    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
     pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .play-overlay {
+    transform: translate(-50%, -50%) scale(1.15);
 }
 
 .portfolio-info {
@@ -391,7 +392,60 @@ section {
     font-size: 0.85rem;
 }
 
-/* Contact Box with Form */
+/* Fullscreen Video Lightbox Modal */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 950px;
+    height: 75vh;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 40px rgba(0, 242, 254, 0.3);
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    line-height: 1;
+    z-index: 100000;
+}
+
+.close-modal:hover {
+    color: var(--primary-neon);
+    transform: scale(1.1);
+}
+
+/* Contact Box */
 .contact-box {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -479,4 +533,14 @@ footer {
     .hero { padding-top: 100px; }
     .cta-btns { flex-direction: column; width: 100%; }
     .contact-box { padding: 30px 20px; }
+
+    .modal-content {
+        width: 95%;
+        height: 60vh;
+    }
+
+    .close-modal {
+        top: 15px;
+        right: 20px;
+    }
 }
