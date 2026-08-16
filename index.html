@@ -207,8 +207,6 @@
                     <textarea id="andrea_user_message" rows="5" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn-primary" id="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
-                
-                <div id="form-status-msg" class="status-msg"></div>
             </form>
         </div>
     </section>
@@ -224,6 +222,15 @@
         <span class="close-modal">&times;</span>
         <div class="image-modal-content" onclick="event.stopPropagation()">
             <img id="modal-img-src" src="" alt="Expanded Design">
+        </div>
+    </div>
+
+    <div id="custom-alert-modal" class="custom-modal">
+        <div class="custom-modal-content">
+            <div id="modal-icon-container" class="modal-icon"></div>
+            <h3 id="modal-title">Notice</h3>
+            <p id="modal-message"></p>
+            <button id="modal-close-btn" class="btn-primary" onclick="closeCustomModal()">Got it</button>
         </div>
     </div>
 
@@ -253,18 +260,26 @@
 
         const contactForm = document.getElementById('andrea-contact-form');
         const submitBtn = document.getElementById('btn-submit');
-        const statusMsg = document.getElementById('form-status-msg');
+        const alertModal = document.getElementById('custom-alert-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalIcon = document.getElementById('modal-icon-container');
 
-        function showStatus(text, type) {
-            statusMsg.innerText = text;
-            statusMsg.className = `status-msg ${type}`;
-            statusMsg.style.display = 'block';
-            
-            setTimeout(() => {
-                if (type !== 'error') {
-                    statusMsg.style.display = 'none';
-                }
-            }, 5000);
+        function showCustomModal(title, message, type = 'success') {
+            modalTitle.innerText = title;
+            modalMessage.innerText = message;
+
+            if (type === 'success') {
+                modalIcon.innerHTML = '<i class="fa-solid fa-circle-check" style="color: var(--primary-neon);"></i>';
+            } else {
+                modalIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i>';
+            }
+
+            alertModal.classList.add('active');
+        }
+
+        function closeCustomModal() {
+            alertModal.classList.remove('active');
         }
 
         function checkDailyLimit() {
@@ -284,7 +299,11 @@
                 let limitData = checkDailyLimit();
 
                 if (limitData.count >= 3) {
-                    showStatus("عفواً، لقد وصلت للحد الأقصى (3 رسائل يومياً). يمكنك المحاولة مجدداً غداً!", "error");
+                    showCustomModal(
+                        "Limit Reached", 
+                        "You have reached the daily limit of 3 messages. Please try again tomorrow!", 
+                        "error"
+                    );
                     return;
                 }
 
@@ -302,7 +321,11 @@
                     localStorage.setItem('user_msg_limit', JSON.stringify(limitData));
 
                     const remaining = 3 - limitData.count;
-                    showStatus(`تم إرسال رسالتك بنجاح! متبقي لك اليوم ${remaining} رسائل.`, "success");
+                    showCustomModal(
+                        "Message Sent!", 
+                        `Thank you! Your message has been sent successfully. You have ${remaining} message(s) left for today.`, 
+                        "success"
+                    );
 
                     contactForm.reset();
                     submitBtn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
@@ -310,7 +333,11 @@
                 })
                 .catch((error) => {
                     console.error("Error sending message: ", error);
-                    showStatus("حدث خطأ أثناء الإرسال، برجاء المحاولة لاحقاً.", "error");
+                    showCustomModal(
+                        "Something Went Wrong", 
+                        "Failed to send your message. Please try again later.", 
+                        "error"
+                    );
                     submitBtn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
                     submitBtn.disabled = false;
                 });
