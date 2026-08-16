@@ -80,19 +80,53 @@ function animate() {
 }
 animate();
 
-// Portfolio Filter Script
-function filterWork(category) {
-    const items = document.querySelectorAll('.portfolio-item');
-    const btns = document.querySelectorAll('.filter-btn');
+// Mobile Navigation Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const navItems = document.querySelectorAll('.nav-item');
 
-    btns.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    items.forEach(item => {
-        if (category === 'all' || item.classList.contains(category)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
         }
     });
+
+    // Close mobile menu when clicking a link
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            }
+        });
+    });
 }
+
+// Portfolio Filter Script
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        // Handle Active Class
+        filterBtns.forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+
+        // Filter Logic
+        const category = e.target.getAttribute('data-filter');
+
+        portfolioItems.forEach(item => {
+            if (category === 'all' || item.classList.contains(category)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
